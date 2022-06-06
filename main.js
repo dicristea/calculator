@@ -1,27 +1,37 @@
-let initialDisplay = "0";
+let displayValue = "0";
+console.log(displayValue);
 let firstOperand
 let secondOperand
-const numberBtn = Array.from(document.querySelectorAll('.number'));
+const buttons = Array.from(document.getElementsByTagName('button'));
+console.log(buttons);
 const operator = Array.from(document.querySelectorAll('.operator'));
 
-
-numberBtn.addEventListener('click', function(e) {
-    numberBtn.forEach(num => num.addEventListener('keydown', function(e) {
-        
-    }))
-});
-
-
-
-
-function updateDisplay() {
-    const display = document.getElementById('display');
-    
+function clickButton() {
+    for(let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function() {
+            if (buttons[i].classList.contains('number')) {
+                displayValue = buttons[i].value;
+                updateDisplay(displayValue);
+            } else if (buttons[i].classList.contains('clear')){
+                displayValue = '0';
+                updateDisplay(displayValue);
+            }
+        });
+    };
 };
 
+clickButton();
+
+
+function updateDisplay(displayValue) {
+    const display = document.getElementById('display');
+    display.innerText = displayValue;
+};
+
+updateDisplay(displayValue);
+
 function roundDecimal(answer) {
-    // round number to 8 decimal places
-    return answer;
+    return Math.round((answer + Number.EPSILON) * 100) / 100;
 };
 
 function add(a, b) {

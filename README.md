@@ -13,9 +13,9 @@ Want to learn:
 - how to incorporate graphic design elements
 
 What I learned:
-- how to implement css grid
-- differences btwn a, button, input, and div tags for creating "buttons"
-- span vs div
+- css grid
+- differences btwn a(nav), button(onclick), input(form), and div(animation, etc.) tags for creating "buttons"
+- span vs div (inline vs block)
 
 
 Tips:
