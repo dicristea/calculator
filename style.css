@@ -1,0 +1,125 @@
+:root {
+    --body-color: #87a7ec;
+    --calculator: whitesmoke;
+    --hover: #3d4b79;
+    --digit-buttons: #87a7ec;
+    --operators: #567dd1;
+    --shadow: #313131;
+  }
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 100%;
+    text-align: center;
+    color: whitesmoke;
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--body-color)
+}
+
+#content-wrap {
+    padding-top: 16px;
+    flex-grow: 1;
+}
+
+.calculator-wrapper {
+    background-color: var(--calculator);
+    width: 400px;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.display-wrapper {
+    flex: 1;
+}
+
+.display {
+    padding: 16px 24px 16px 24px;
+    margin: 24px 24px 16px 24px;
+    background-color: var(--body-color);
+    font-size: 2rem;
+    border-radius: 2%;
+    display: grid;
+    justify-items: end;
+}
+
+.show-operation, .number-choice {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.show-operation {
+    font-size: 1.5rem;
+}
+
+.buttons-wrapper {
+    flex: 1;
+    padding: 16px 24px 24px 24px;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    background-color: var(--body-color);
+    color: whitesmoke;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    padding: 16px;
+    font-size: 1.5rem;
+}
+
+.operator {
+    background-color: var(--operators);
+}
+
+.clear {
+    background-color: #f38181;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--hover);
+    transform: scale(1.05);
+    transition: 0.6ms;
+    box-shadow: 5px 5px 5px rgb(233, 233, 233);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--hover);
+    transform: scale(1.05);
+    transition: 0.6ms;
+    box-shadow: 5px 5px 5px rgb(233, 233, 233);
+}
+
+#plus {
+    grid-row: 4 / 6;
+    grid-column: 4;
+}
+
+#footer {
+    width: 100%;
+    height: 4rem;
+    font-size: 1rem;
+    color: whitesmoke;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

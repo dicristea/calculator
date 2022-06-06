@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="main.js" defer></script>
+    <title>Calculator</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+
+<div id="page-container">
+    <div id="content-wrap">
+        <div class="header">
+            <h1>calculator</h1>
+        </div>
+        <div class="calculator-wrapper">
+            <div class="display-wrapper">
+                <div class="display">
+                    <div class="show-operation"></div>
+                    <div class="number-choice" id="display">0</div>
+                </div>
+            </div>
+            <div class="buttons-wrapper">
+                <div class="buttons-grid">
+                    <button class="clear" value='clear' data-key="8">AC</button>
+                    <button class="sign" value='sign' data-key="192">+/-</button>
+                    <button class="operator" value='power' data-key="54">xʸ</button>
+                    <button class="operator" value='divide' data-key="191">÷</button>
+                    <button class="number" value='7' data-key="55">7</button>
+                    <button class="number" value='8' data-key="56">8</button>
+                    <button class="number" value='9' data-key="57">9</button>
+                    <button class="operator" value='multiply' data-key="106">x</button>
+                    <button class="number" value='' data-key="52">4</button>
+                    <button class="number" value='' data-key="53">5</button>
+                    <button class="number" value='' data-key="54">6</button>
+                    <button class="operator" value='subtract' data-key="109">-</button>
+                    <button class="number" value='1' data-key="49">1</button>
+                    <button class="number" value='2' data-key="50">2</button>
+                    <button class="number" value='3' data-key="51">3</button>
+                    <button class="operator" id="plus" value='add' data-key="107">+</button>
+                    <button class="number" value='0' data-key="48">0</button>
+                    <button class="number decimal" value='decimal' data-key="190">.</button>
+                    <button class="operator" value='equals' data-key="61">=</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <footer id="footer">Built by ddtea. ⚜ 2022.</footer>
+</div>
+
+
+</body>
+</html>
