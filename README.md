@@ -26,3 +26,4 @@ Tips:
 - keep in mind what should be a global vs. local variable
 
 To do in future:
+- display current operation when onclick an operator button
