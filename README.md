@@ -8,14 +8,16 @@ Favicon icon:
 Want to learn:
 - custom google fonts X
 - CSS grid 
-- when to use const versus let **
-- toggle-able classes in CSS
+- when to use const versus let ** ANYTIME you don't have to use let, use const
+- toggle-able classes in CSS X
 - how to incorporate graphic design elements
 
-What I learned:
+What I learned/practiced:
 - css grid
 - differences btwn a(nav), button(onclick), input(form), and div(animation, etc.) tags for creating "buttons"
 - span vs div (inline vs block)
+- ANYTIME you don't have to use let, use const
+- lots of backend variable and function practice!
 
 
 Tips:
@@ -26,4 +28,4 @@ Tips:
 - keep in mind what should be a global vs. local variable
 
 To do in future:
-- display current operation when onclick an operator button
+- when displaying exponentially large numbers, fix style to not overflow from display

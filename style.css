@@ -10,7 +10,7 @@
 
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-size: 100%;
     text-align: center;
     color: whitesmoke;
@@ -80,10 +80,11 @@ button {
     border-radius: 5%;
     cursor: pointer;
     padding: 16px;
+    font-family : inherit;
     font-size: 1.5rem;
 }
 
-.operator {
+.operator, .equals {
     background-color: var(--operators);
 }
 

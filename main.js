@@ -2,8 +2,11 @@ let displayValue = '0';
 let firstOperand = null;
 let operator = null;
 let secondOperand = null;
+let secondDisplayValue = '';
 
 const buttons = Array.from(document.getElementsByTagName('button'));
+const secondDisplay = document.querySelector('.show-operation');
+
 
 function updateDisplay(displayValue) {
     const display = document.getElementById('display');
@@ -20,9 +23,8 @@ function clickButton() {
                     displayValue = buttons[i].value;
                 } else {
                     displayValue += buttons[i].value;
-                    // inputOperand(buttons[i].value);
                 };
-                updateDisplay(displayValue);
+            updateDisplay(displayValue);
 
             } else if (buttons[i].classList.contains('clear')) {
                 displayValue = '0';
@@ -30,20 +32,40 @@ function clickButton() {
                 operator = null;
                 secondOperand = null;
                 updateDisplay(displayValue);
+                secondDisplayValue = '';
+                updateSecondDisplay(secondDisplayValue);
 
             } else if (buttons[i].classList.contains('sign')) {
-                if (displayValue < '0') {
-                    displayValue = displayValue * -1;
-                    updateDisplay(displayValue);
-                } else if (displayValue > '0') {
-                    displayValue = '-' + displayValue;
-                    updateDisplay(displayValue);
-                };
+                displayValue *= -1;
+                updateDisplay(displayValue);
 
             } else if (buttons[i].classList.contains('operator')) {
-                
-                inputOperator(buttons[i].value, firstOperand, secondOperand)
-            };
+                if (firstOperand !== null && operator !== null) {
+                    compute();
+                }
+                firstOperand = displayValue;
+                operator = buttons[i].textContent;
+                displayValue = '';
+                updateDisplay(displayValue);
+                if (operator === 'xʸ') {
+                    secondDisplayValue = firstOperand + ' ^';
+                } else {
+                    secondDisplayValue = firstOperand + ' ' + operator;
+                }
+                updateSecondDisplay(secondDisplayValue);
+
+            } else if (buttons[i].classList.contains('equals')) {
+                if (firstOperand !== null && operator !== null) {
+                    compute();
+                }
+            } else if (buttons[i].classList.contains('decimal')) {
+                if (displayValue.includes('.')) {
+
+                } else {
+                    displayValue += '.';
+                };
+                updateDisplay(displayValue);
+            }
         });
     };
 };
@@ -51,33 +73,40 @@ function clickButton() {
 clickButton();
 
 
-function inputOperator(operator, firstOperand, secondOperand) {    
-    
-    if (displayValue === '0') {
-        displayValue = '0';
-        updateDisplay(displayValue);
+function compute() {    
+    secondOperand = displayValue;
+    if (operator === 'xʸ') {  
+        secondDisplayValue = firstOperand + ' ^ ' + secondOperand + ' =';
+    } else {
+        secondDisplayValue = firstOperand + ' ' + operator + ' ' + secondOperand + ' =';
+    }
+    updateSecondDisplay(secondDisplayValue);
+    runOperation(operator, firstOperand, secondOperand);
+    firstOperand = displayValue;
+    operator = null;
+    secondOperand = null;
+};
 
-    } else if (displayValue === 'undefined') {
-        displayValue = 'undefined';
-        updateDisplay(displayValue);
 
-    } else if (displayValue !== '0' || displayValue !== 'undefined') {
-        // secondOperand = clickButton();
-        if (operator == 'power') {
+function runOperation(operator, firstOperand, secondOperand) {    
+    if (displayValue !== '0' || displayValue !== 'undefined') {
+        if (operator === 'xʸ') {
             power(firstOperand, secondOperand);
-        } else if (operator == 'divide') {
+        } else if (operator === '÷') {
             divide(firstOperand, secondOperand);
-        } else if (operator == 'multiply') {
+        } else if (operator === 'x') {
             multiply(firstOperand, secondOperand);
-        } else if (operator == 'add') {
+        } else if (operator === '+') {
             add(firstOperand, secondOperand);
-        } else if (operator == 'subtract') {
+        } else if (operator === '-') {
             subtract(firstOperand, secondOperand);
         };
-    
     };
 };
 
+function updateSecondDisplay(secondDisplayValue) {
+    secondDisplay.textContent = secondDisplayValue;
+};
 
 
 
@@ -86,27 +115,35 @@ function roundDecimal(answer) {
 };
 
 function add(a, b) {
-    let answer = a + b;
-    return roundDecimal(answer);
+    let answer = Number(a) + Number(b);
+    
+    displayValue = roundDecimal(answer).toString();
+    firstOperand = displayValue;
+    updateDisplay(displayValue);
 };
 
 function subtract(a, b) {
     let answer = a - b;
-    return roundDecimal(answer);
+    displayValue = roundDecimal(answer);
+    firstOperand = displayValue;
+    updateDisplay(displayValue);
 };
 
 function multiply(a, b) {
     let answer = a * b;
-    return roundDecimal(answer)
-};
+    displayValue = roundDecimal(answer);
+    firstOperand = displayValue;
+    updateDisplay(displayValue);};
 
 function divide(a, b) {
-    if (b == 0) {
+    if (b === '0') {
         displayValue = "undefined";
         updateDisplay(displayValue);
     } else {
     let answer = a/b;
-    return roundDecimal(answer);
+    displayValue = roundDecimal(answer);
+    firstOperand = displayValue;
+    updateDisplay(displayValue);    
     }
 };
 
@@ -115,5 +152,7 @@ function power(a, b) {
     for (let i = 1; i < b; i++) {
         answer *= a;
     }
-    return roundDecimal(answer);
+    displayValue = roundDecimal(answer);
+    firstOperand = displayValue;
+    updateDisplay(displayValue);
 };
