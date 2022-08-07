@@ -133,7 +133,8 @@ function multiply(a, b) {
     let answer = a * b;
     displayValue = roundDecimal(answer);
     firstOperand = displayValue;
-    updateDisplay(displayValue);};
+    updateDisplay(displayValue);
+};
 
 function divide(a, b) {
     if (b === '0') {
