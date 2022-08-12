@@ -100,14 +100,6 @@ button:hover {
     box-shadow: 5px 5px 5px var(--shadow);
 }
 
-button:hover {
-    cursor: pointer;
-    background-color: var(--hover);
-    transform: scale(1.05);
-    transition: 0.6ms;
-    box-shadow: 5px 5px 5px var(--shadow);
-}
-
 #plus {
     grid-row: 4 / 6;
     grid-column: 4;
